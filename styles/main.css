@@ -1,0 +1,68 @@
+.wrapper {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+h1 {
+  margin-bottom: 1em;
+}
+
+section:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  margin-bottom: 0.75em;
+}
+
+#line-1,
+#line-2,
+#line-3,
+#line-4 {
+  width: 20%;
+  height: 2px;
+  background-color: orangered;
+  margin: 0 auto;
+}
+
+#line-1,
+#line-2,
+#line-3 {
+  transition: all ease 1s;
+}
+
+#line-1.is-loaded,
+#line-2.is-loaded,
+#line-3.is-loaded
+ {
+  width: 100%;
+}
+
+/**
+ * The animation definition. We're not specifying a `0%` for initial values as
+ * it's unnecessary in this case. The relevant initial value has been defined
+ * above (`width: 20%;`).
+ */
+@keyframes grow {
+  100% {
+    width: 100%;
+  }
+}
+
+#line-4 {
+  animation: grow ease 1s 1 forwards;
+  /**
+   * The above is shorthand for the following properties and values, in the
+   * same order:
+   *
+   * animation-name: grow;
+   * animation-timing-function: ease;
+   * animation-duration: 1s;
+   * animation-iteration-count: 1;
+   * animation-fill-mode: forwards;
+   *
+   * Animation fill `forwards` will ensure the element remains at the final
+   * animation values (`width: 100%;`) after the animation has completed.
+   */
+}
